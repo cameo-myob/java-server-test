@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.Handlers.TestHandler;
+import com.company.handlers.TestHandler;
 import com.sun.net.httpserver.*;
 
 import java.io.IOException;
@@ -14,3 +14,4 @@ public class Main {
         server.start();
     }
 }
+

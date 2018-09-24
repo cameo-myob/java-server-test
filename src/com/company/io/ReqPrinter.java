@@ -1,4 +1,4 @@
-package com.company.IO;
+package com.company.io;
 
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;

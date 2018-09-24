@@ -1,6 +1,7 @@
-package com.company.Handlers;
+package com.company.handlers;
 
-import com.company.IO.ReqPrinter;
+import com.company.HttpResponse;
+import com.company.io.ReqPrinter;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
@@ -12,9 +13,14 @@ public class PostHandler implements HttpHandler {
         ReqPrinter.printRequestInfo(exchange);
         String response = "{\"message\": \"post method\"}";
         exchange.getResponseHeaders().set("Content-Type:", "application/json;");
-        exchange.sendResponseHeaders(201, response.getBytes().length);
+        exchange.sendResponseHeaders(HttpResponse.OK.getCode(), response.getBytes().length);
+
         OutputStream os = exchange.getResponseBody();
-        os.write(response.getBytes());
+
+        for(char c : response.toCharArray()) {
+            os.write(c);
+        }
+
         os.close();
     }
 }
